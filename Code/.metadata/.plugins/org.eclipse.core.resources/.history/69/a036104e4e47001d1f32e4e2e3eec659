@@ -24,16 +24,16 @@
 #define DC_MOTOR_ROTATION_DIRECTION_PIN1_ID PIN0_ID
 #define DC_MOTOR_ROTATION_DIRECTION_PIN2_ID PIN1_ID
 
-#define DC_MOTOR_EN_PORT_ID 				PORTB_ID
+#define DC_MOTOR_EN_PORT_ID PORTB_ID
 
-#define DC_MOTOR_EN_PIN_ID 					PIN3_ID
+#define DC_MOTOR_EN_PIN_ID PIN3_ID
 
-#define DC_MOTOR_SHOFT_RIGHT_ONE_BIT		  1
+
 /*******************************************************************************
  *                               Types Declaration                             *
  *******************************************************************************/
 typedef enum{
-	STOP = 0, ClockWise, Anti_ClockWise
+	STOP, ClockWise, Anti_ClockWise = 2
 }DcMotor_State;
 
 /*******************************************************************************
