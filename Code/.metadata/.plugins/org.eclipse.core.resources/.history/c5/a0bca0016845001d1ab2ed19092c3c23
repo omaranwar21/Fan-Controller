@@ -1,0 +1,29 @@
+/*
+ * fanController.c
+ *
+ *  Created on: Oct 6, 2022
+ *      Author: Anwar
+ */
+
+#include <avr/io.h>
+#include "lcd.h"
+#include "std_types.h"
+#include "common_macros.h"
+#include "gpio.h"
+
+void LCD_RW_PIN (uint8 PORT_ID, uint8 PIN_NUM){
+	GPIO_setupPinDirection(PORT_ID, PIN_NUM, PIN_OUTPUT);
+	GPIO_writePin(PORTD_ID, PIN1_ID, LOGIC_LOW);
+}
+
+int main(int argc, char **argv) {
+
+	LCD_init();
+	LCD_displayString("ANWAR");
+
+	while(1){
+
+	}
+}
+
+

@@ -1,0 +1,19 @@
+ /******************************************************************************
+ *
+ * Module: DC Motor
+ *
+ * File Name: dc_motor.c
+ *
+ * Description: Source file for DC Motor driver
+ *
+ * Author: Omar Ahmed Anwar Mansour
+ *
+ *******************************************************************************/
+#include "dc_motor.h"
+#include "gpio.h" /* To use GPIO driver*/
+#include "common_macros.h"  /* To use the macros like SET_BIT */
+
+
+void DcMotor_Init(void){
+	GPI
+}

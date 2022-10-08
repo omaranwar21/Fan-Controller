@@ -1,0 +1,18 @@
+
+
+
+#include "fan_controller.h"
+#include "lcd.h"
+
+void FAN_CONTROLLER_FOR_DISPLAY(uint8 temp){
+
+	LCD_moveCursor(1,11);
+	if (temp >= 100) {
+		LCD_intgerToString(temp);
+	}
+	else {
+		LCD_intgerToString(temp);
+		LCD_displayCharacter(' ');
+	}
+}
+

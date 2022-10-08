@@ -1,0 +1,18 @@
+ /******************************************************************************
+ *
+ * Module: DC_Motor
+ *
+ * File Name: dc_motor.h
+ *
+ * Description: header file for the DC Motor driver
+ *
+ * Author: Omar Ahmed Anwar Mansour
+ *
+ *******************************************************************************/
+
+#ifndef DC_MOTOR_H_
+#define DC_MOTOR_H_
+
+
+
+#endif /* DC_MOTOR_H_ */

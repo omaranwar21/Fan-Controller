@@ -1,0 +1,78 @@
+/*
+ * fanController.c
+ *
+ *  Created on: Oct 6, 2022
+ *      Author: Anwar
+ */
+
+#include <avr/io.h>
+#include <util/delay.h>
+#include "fan_controller.h"
+#include "lcd.h"
+#include "std_types.h"
+#include "common_macros.h"
+#include "gpio.h"
+#include "adc.h"
+#include "lm35_sensor.h"
+
+void LCD_RW_PIN (uint8 port, uint8 PIN_NUM){
+	/*
+	 * Check if the input port number is greater than NUM_OF_PINS_PER_PORT value.
+	 * Or if the input pin number is greater than NUM_OF_PINS_PER_PORT value.
+	 * In this case the input is not valid port/pin number
+	 */
+	if((PIN_NUM >= NUM_OF_PINS_PER_PORT) || (port >= NUM_OF_PORTS))
+	{
+		/* Do Nothing */
+	}
+	else {
+		/* Setup the pin direction as OUTPUT */
+		GPIO_setupPinDirection(port, PIN_NUM, PIN_OUTPUT);
+		/* Write the pin value as LOGIC LOW (Ground) */
+		GPIO_writePin(port, PIN_NUM, LOGIC_LOW);
+	}
+}
+
+int main(int argc, char **argv) {
+	uint8 temp;
+
+	/*
+	 * connect R/W Pin in LCD to LOGIC LOW (Ground).
+	 */
+	LCD_RW_PIN (PORTD_ID, PIN1_ID);
+
+
+	/*
+	 * LCD Initialization function.
+	 */
+	LCD_init();
+	ADC_ConfigType adc = {3,
+			3
+	};
+	ADC_init(&adc);
+	LCD_moveCursor(0, 5);
+	LCD_displayString("Fan is ON");
+
+
+	/* Display this string "Temp =   C" only once on LCD at the first row */
+	LCD_displayString("Temp =    C");
+
+	while(1){
+		temp = LM35_getTemperature();
+
+		/* Display the temperature value every time at same position */
+		LCD_moveCursor(0,7);
+		if(temp >= 100)
+		{
+			LCD_intgerToString(temp);
+		}
+		else
+		{
+			LCD_intgerToString(temp);
+			/* In case the digital value is two or one digits print space in the next digit place */
+			LCD_displayCharacter(' ');
+
+		}
+	}
+}
+

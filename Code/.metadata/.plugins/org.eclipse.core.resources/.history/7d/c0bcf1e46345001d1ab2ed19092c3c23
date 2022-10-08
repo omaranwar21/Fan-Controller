@@ -1,0 +1,20 @@
+/*
+ * fanController.c
+ *
+ *  Created on: Oct 6, 2022
+ *      Author: Anwar
+ */
+
+//#include <avr/io.h>
+#include "lcd.h"
+
+int main(int argc, char **argv) {
+	LCD_init();
+	LCD_displayCharacter('A');
+
+	while(1){
+
+	}
+}
+
+

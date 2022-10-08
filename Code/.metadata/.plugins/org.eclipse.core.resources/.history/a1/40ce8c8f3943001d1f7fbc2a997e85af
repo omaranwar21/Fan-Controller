@@ -1,0 +1,23 @@
+/*
+ * gpio.h
+ *
+ *  Created on: Oct 3, 2022
+ *      Author: Anwar
+ */
+
+#ifndef GPIO_H_
+#define GPIO_H_
+
+#include "std_types.h"
+
+typedef enum {
+	PIN_INPUT, PIN_OUTPUT
+}GPIO_PinDirectionType;
+
+typedef enum
+{
+	PORT_INPUT,PORT_OUTPUT=0xFF
+}GPIO_PortDirectionType;
+
+
+#endif /* GPIO_H_ */

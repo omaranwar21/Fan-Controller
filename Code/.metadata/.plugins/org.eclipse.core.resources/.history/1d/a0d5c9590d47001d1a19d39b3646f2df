@@ -1,0 +1,50 @@
+ /******************************************************************************
+ *
+ * Module: DC_Motor
+ *
+ * File Name: dc_motor.h
+ *
+ * Description: header file for the DC Motor driver
+ *
+ * Author: Omar Ahmed Anwar Mansour
+ *
+ *******************************************************************************/
+
+#ifndef DC_MOTOR_H_
+#define DC_MOTOR_H_
+
+#include "std_types.h"
+
+/*******************************************************************************
+ *                                Definitions                                  *
+ *******************************************************************************/
+#define ADC_MAXIMUM_VALUE    1023
+#define ADC_REF_VOLT_VALUE   2.56
+
+/********************************************************************************/
+
+
+
+
+
+
+/*******************************************************************************
+ *                      Functions Prototypes                                   *
+ *******************************************************************************/
+
+/*
+ * Description :
+ * Function responsible for initialize the DC Motor driver.
+ */
+ void DcMotor_Init(void);
+
+/*
+ * Description :
+ * Function responsible for read analog data from a certain ADC channel
+ * and convert it to digital using the ADC driver.
+ */
+ void DcMotor_Rotate(DcMotor_State state,uint8 speed);
+
+
+
+#endif /* DC_MOTOR_H_ */

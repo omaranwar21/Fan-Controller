@@ -1,0 +1,14 @@
+/*
+ * fan_controller.h
+ *
+ *  Created on: Oct 6, 2022
+ *      Author: Anwar
+ */
+
+#ifndef FAN_CONTROLLER_H_
+#define FAN_CONTROLLER_H_
+#include "std_types.h"
+
+
+
+#endif /* FAN_CONTROLLER_H_ */

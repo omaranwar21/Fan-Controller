@@ -1,0 +1,53 @@
+/*
+ * fanController.c
+ *
+ *  Created on: Oct 6, 2022
+ *      Author: Anwar
+ */
+
+#include <avr/io.h>
+#include "fan_controller.h"
+#include "lcd.h"
+#include "std_types.h"
+#include "common_macros.h"
+#include "gpio.h"
+
+void LCD_RW_PIN (uint8 PORT_ID, uint8 PIN_NUM){
+	/*
+	 * Check if the input port number is greater than NUM_OF_PINS_PER_PORT value.
+	 * Or if the input pin number is greater than NUM_OF_PINS_PER_PORT value.
+	 * In this case the input is not valid port/pin number
+	 */
+	if((PIN_NUM >= NUM_OF_PINS_PER_PORT) || (PORT_ID >= NUM_OF_PORTS))
+	{
+		/* Do Nothing */
+	}
+	else {
+		/* Setup the pin direction as OUTPUT */
+		GPIO_setupPinDirection(PORT_ID, PIN_NUM, PIN_OUTPUT);
+		/* Write the pin value as LOGIC LOW (Ground) */
+		GPIO_writePin(PORT_ID, PIN_NUM, LOGIC_LOW);
+	}
+}
+
+int main(int argc, char **argv) {
+
+	/*
+	 * connect R/W Pin in LCD to LOGIC LOW (Ground).
+	 */
+	LCD_RW_PIN (PORTD_ID, PIN1_ID);
+
+
+	/*
+	 * LCD Initialization function.
+	 */
+	LCD_init();
+
+	LCD_displayString("ANWAR");
+
+	while(1){
+
+	}
+}
+
+

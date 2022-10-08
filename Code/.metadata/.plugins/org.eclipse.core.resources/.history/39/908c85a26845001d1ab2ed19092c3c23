@@ -1,0 +1,17 @@
+/*
+ * fan_controller.h
+ *
+ *  Created on: Oct 6, 2022
+ *      Author: Anwar
+ */
+
+#ifndef FAN_CONTROLLER_H_
+#define FAN_CONTROLLER_H_
+
+void LCD_RW_PIN (uint8 PORT_ID, uint8 PIN_NUM);
+/*
+ * Function to asjust R/W port and pin of LCD
+ * if it is not connected manually to the ground.
+ */
+
+#endif /* FAN_CONTROLLER_H_ */

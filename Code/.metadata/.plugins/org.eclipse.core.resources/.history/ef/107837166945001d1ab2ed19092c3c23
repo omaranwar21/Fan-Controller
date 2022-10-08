@@ -1,0 +1,24 @@
+/*
+ * fan_controller.h
+ *
+ *  Created on: Oct 6, 2022
+ *      Author: Anwar
+ */
+
+#ifndef FAN_CONTROLLER_H_
+#define FAN_CONTROLLER_H_
+
+/*
+ * Description :
+ * Setup the direction of the required pin input/output.
+ * If the input port number or pin number are not correct, The function will not handle the request.
+ */
+
+/*
+ * Function to adjust R/W port and pin of LCD
+ * if it is not connected manually to the ground.
+ */
+void LCD_RW_PIN (uint8 PORT_ID, uint8 PIN_NUM);
+
+
+#endif /* FAN_CONTROLLER_H_ */

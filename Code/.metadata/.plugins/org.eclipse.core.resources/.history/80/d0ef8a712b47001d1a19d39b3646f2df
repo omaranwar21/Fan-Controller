@@ -1,0 +1,18 @@
+/*
+ * fan_controller.h
+ *
+ *  Created on: Oct 6, 2022
+ *      Author: Anwar
+ */
+
+#ifndef FAN_CONTROLLER_H_
+#define FAN_CONTROLLER_H_
+
+#include "std_types.h"
+
+void FAN_CONTROLLER_FOR_DISPLAY(uint8 temp);
+
+void FAN_CONTROLLER_FOR_DISPLAY_FAN_STATE(void);
+
+
+#endif /* FAN_CONTROLLER_H_ */

@@ -1,0 +1,18 @@
+ /******************************************************************************
+ *
+ * Module: PWM
+ *
+ * File Name: pwm.h
+ *
+ * Description: Header file for the PWM driver
+ *
+ * Author: Omar Ahmed Anwar Mansour
+ *
+ *******************************************************************************/
+
+#ifndef PWM_H_
+#define PWM_H_
+
+
+
+#endif /* PWM_H_ */

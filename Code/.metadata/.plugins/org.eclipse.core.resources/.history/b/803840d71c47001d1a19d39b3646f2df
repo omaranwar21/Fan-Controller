@@ -1,0 +1,51 @@
+/******************************************************************************
+ *
+ * Module: PWM
+ *
+ * File Name: pwm.c
+ *
+ * Description: Source file for the PWM driver
+ *
+ * Author: Omar Ahmed Anwar Mansour
+ *
+ *******************************************************************************/
+
+
+
+#include "pwm.h"
+#include <avr/io.h>
+
+
+/*******************************************************************************
+ *                               Types Declaration                             *
+ *******************************************************************************/
+typedef enum{
+	NoClockSource = 0, NoPrescaling, CLK_8, CLK_16, CLK_32, CLK_64, CLK_128, CLK_256, CLK_1024
+}CLOCK_SELECT_PRESCALER;
+
+/*******************************************************************************
+ *                      Functions Prototypes                                   *
+ *******************************************************************************/
+
+
+
+void PWM_Timer0_Start(uint8 duty_cycle){
+
+	/* trigger the Timer0 with the FAST PWM Mode
+	 * 		WGMOO = 1
+	 * 		WGN01 = 1
+	 *
+	 * Setup the PWM mode with Non-Inverting
+	 * 		COM00 = 0
+	 * 		COM01 = 1
+	 *
+	 * Setup the prescaler with F_CPU/8
+	 * 		CS00 = 0
+	 * 		CS01 = 1
+	 * 		CS02 = 0
+	 * 		*/
+	TCCR0 = (1<<WGM00) | (1<<WGM01) | (1<<COM01);
+
+
+
+}

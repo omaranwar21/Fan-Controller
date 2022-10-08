@@ -1,0 +1,91 @@
+/******************************************************************************
+ *
+ * Project: FanController
+ *
+ * File Name: main.c
+ *
+ * Description: Source file for the main project file
+ *
+ * Author: Omar Ahmed Anwar Mansour
+ *
+ *******************************************************************************/
+
+#include "fan_controller.h"
+#include "lcd.h"
+#include "common_macros.h"
+#include "adc.h"
+#include "lm35_sensor.h"
+#include "dc_motor.h"
+
+int main(int argc, char **argv) {
+
+	uint8 temp; /* Unsigned char variable to store the temperature read from Lm35_sensor. */
+
+	LCD_init(); 	/* LCD Initialization function. */
+
+	/* Configuration structure for the ADC
+	 * 		name : adc
+	 * 		Members : -> voltage Reference.
+	 * 				  -> Presacaler.
+	 */
+	ADC_ConfigType adc = {Internal_Voltage_Reference,
+			F_CPU_8
+	};
+
+	/* ADC initialization Function*/
+	ADC_init(&adc);
+
+	/* Moving the cursor of LCD To write at the Middle of the screen of the LCD*/
+	LCD_moveCursor(0, 4);
+
+	/* Display constant string*/
+	LCD_displayString("FAN is ON");
+
+
+	/* Display this string "Temp =   C" only once on LCD at the first row */
+	LCD_moveCursor(1, 4);
+	LCD_displayString("Temp =    C");
+
+	while(1){
+
+		/* Get the current temperature sensed */
+		temp = LM35_getTemperature();
+
+		/* Display the temperature value every time at same position */
+		LCD_moveCursor(1,11);
+
+
+		if(temp < 30 )
+		{
+			LCD_moveCursor(0, 4);
+			LCD_displayString("FAN is OFF");
+
+			DcMotor_Rotate(STOP, 0);
+
+			LCD_moveCursor(1,11);
+			LCD_intgerToString(temp);
+		}
+		else if (temp >= 30 && temp < 60) {
+			LCD_moveCursor(0, 4);
+			LCD_displayString("FAN is ON");
+
+			DcMotor_Rotate(ClockWise, 25);
+
+			LCD_moveCursor(1,11);
+			LCD_intgerToString(temp);
+		}
+		else if (temp >= 60 && temp <90) {
+			LCD_moveCursor(0, 4);
+			LCD_displayString("FAN is ON");
+
+			DcMotor_Rotate(ClockWise, 50);
+
+			LCD_moveCursor(1,11);
+			LCD_intgerToString(temp);
+		}
+		else if (temp > 90) {
+
+		}
+	}
+}
+

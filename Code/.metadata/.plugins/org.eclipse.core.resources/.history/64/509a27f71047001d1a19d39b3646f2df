@@ -1,0 +1,26 @@
+/******************************************************************************
+ *
+ * Module: DC Motor
+ *
+ * File Name: dc_motor.c
+ *
+ * Description: Source file for DC Motor driver
+ *
+ * Author: Omar Ahmed Anwar Mansour
+ *
+ *******************************************************************************/
+#include "dc_motor.h" /* DC Motor Header file */
+#include "gpio.h" /* To use GPIO driver*/
+#include "common_macros.h"  /* To use the macros like SET_BIT */
+
+
+void DcMotor_Init(void){
+	/* Enable pinS OF the direction of the rotation of the motor*/
+	GPIO_setupPinDirection(DC_MOTOR_ROTATION_DIRECTION_PORT, DC_MOTOR_ROTATION_DIRECTION_PIN1, PIN_OUTPUT);
+	GPIO_setupPinDirection(DC_MOTOR_ROTATION_DIRECTION_PORT, DC_MOTOR_ROTATION_DIRECTION_PIN2, PIN_OUTPUT);
+
+	/* Initialize the motor with Stop state*/
+	GPIO_writePort(DC_MOTOR_ROTATION_DIRECTION_PORT, STOP);
+}
+
+
